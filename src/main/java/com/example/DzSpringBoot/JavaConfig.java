@@ -5,13 +5,13 @@ import org.springframework.context.annotation.Bean;
 
 public class JavaConfig {
 
-    @ConditionalOnProperty
+    @ConditionalOnProperty(value="profile.dev", havingValue = "true")
     @Bean
     public SystemProfile devProfile() {
         return new DevProfile();
     }
 
-    @ConditionalOnProperty
+    @ConditionalOnProperty(value="profile.dev", havingValue = "false")
     @Bean
     public SystemProfile prodProfile() {
         return new ProductionProfile();
